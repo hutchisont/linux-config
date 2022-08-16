@@ -1,0 +1,33 @@
+autoload -Uz compinit && compinit
+
+if [ -e "/usr/share/powerline/bindings/zsh/powerline.zsh" ]; then
+	powerline-daemon -q
+	source "/usr/share/powerline/bindings/zsh/powerline.zsh"
+fi
+
+if [ -d "/usr/share/zsh/plugins/" ]; then
+	pushd "/usr/share/zsh/plugins/" > /dev/null 2>&1
+	if [ -e "zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+		source "zsh-autosuggestions/zsh-autosuggestions.zsh"
+	fi
+	if [ -e "zsh-completions/zsh-completions.zsh" ]; then
+		source "zsh-completions/zsh-completions.zsh"
+	fi
+	if [ -e "zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
+		source "zsh-history-substring-search/zsh-history-substring-search.zsh"
+	fi
+	if [ -e "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+		source "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+	fi
+	popd > /dev/null 2>&1
+fi
+
+# Scripts of things I've installed manually and don't want to pollute the system files with
+export PATH="$PATH:/home/tyler/workspace/programs"
+
+alias restartPlasma='kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1'
+alias gits='git status'
+alias gitf='git fetch'
+alias glog='git log --oneline --decorate'
+alias gloga='git log --oneline --decorate --all'
+alias ls='ls --color=auto'
