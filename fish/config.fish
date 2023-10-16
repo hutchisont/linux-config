@@ -8,10 +8,20 @@ if status is-interactive
     # Scripts of things I've installed manually and don't want to pollute the system files with
     set -x GPG_TTY $(tty)
     set -x PATH "$PATH:/home/tyler/workspace/programs"
+    # Added by Toolbox App
+    set -x PATH "$PATH:/home/tyler/.local/share/JetBrains/Toolbox/scripts"
+
+    set -x EDITOR nvim
     
     alias restartPlasma='kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1'
+    alias xrandrLeftMonitor='xrandr --output HDMI-0 --auto --left-of DP-0'
+    alias xrandrRightMonitor='xrandr --output DP-0 --auto --right-of HDMI-0'
+    alias hx='helix'
+    alias vim='nvim'
     alias gits='git status'
     alias gitf='git fetch'
     alias glog='git log --oneline --decorate'
     alias gloga='git log --oneline --decorate --all'
+    alias ls='ls -al --color=auto'
 end
+
