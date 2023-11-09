@@ -222,6 +222,7 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
 
+  'nvim-treesitter/nvim-treesitter-context',
   'ThePrimeagen/harpoon',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
