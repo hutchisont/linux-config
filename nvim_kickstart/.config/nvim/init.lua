@@ -267,6 +267,7 @@ vim.opt.colorcolumn = "80"
 
 vim.keymap.set("n", "<leader>pt", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader)
 
 vim.keymap.set('n', '<leader>rp', require('telescope.builtin').resume, {})
 vim.keymap.set('n', '<leader>ps', function()
