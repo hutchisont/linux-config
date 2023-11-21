@@ -1,0 +1,13 @@
+#!/usr/bin/fish
+
+set WARCRAFT_LOGS_DIR "$HOME/.var/app/com.usebottles.bottles/data/bottles/bottles/wow/drive_c/Program Files (x86)/World of Warcraft/_retail_/Logs/"
+
+pushd "$WARCRAFT_LOGS_DIR" or exit $status
+
+for log_file in WoWCombatLog*.txt;
+	set file_to_delete $(find "$log_file" -mtime +2)
+	rm "$file_to_delete"
+end
+
+popd
+

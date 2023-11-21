@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pactl load-module module-remap-sink sink_name=secondary master=sink_name
+
+pavucontrol&
