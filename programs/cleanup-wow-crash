@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+kill-all-with-name "wow.exe"
+kill-all-with-name "battle.net"
+
