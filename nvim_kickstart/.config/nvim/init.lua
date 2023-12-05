@@ -224,17 +224,10 @@ require('lazy').setup({
 
   'nvim-treesitter/nvim-treesitter-context',
   'ThePrimeagen/harpoon',
+
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
-  {
-    'rcarriga/nvim-dap-ui',
-    dependencies = {
-      'mfussenegger/nvim-dap',
-    }
-  },
 
-  'theHamsta/nvim-dap-virtual-text',
-  'leoluz/nvim-dap-go',
   'rstacruz/vim-closer',
 
 }, {})
