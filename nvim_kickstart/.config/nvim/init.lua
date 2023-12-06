@@ -327,9 +327,16 @@ require("catppuccin").setup({
 vim.cmd.colorscheme "catppuccin"
 
 require("nvim-tree").setup({
+  hijack_netrw = false,
   view = {
     number = true,
     relativenumber = true,
+    width = 400,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
   },
 })
 
