@@ -255,6 +255,10 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.smartindent = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -473,6 +477,10 @@ vim.defer_fn(function()
           ['if'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
+          ['al'] = '@loop.outer',
+          ['il'] = '@loop.inner',
+          ['ai'] = '@conditional.outer',
+          ['ii'] = '@conditional.inner',
         },
       },
       move = {
@@ -674,3 +682,4 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
