@@ -286,6 +286,7 @@ vim.opt.colorcolumn = "80"
 -- I don't like the type of redo that default "U" does so I'm making it just do
 -- the same redo as "ctrl-r"
 vim.keymap.set("n", "U", vim.cmd.redo)
+vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoTree' })
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader)
 
