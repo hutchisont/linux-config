@@ -224,9 +224,7 @@ require('lazy').setup({
 
   'nvim-treesitter/nvim-treesitter-context',
   'ThePrimeagen/harpoon',
-
-  'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
+  'mbbill/undotree',
 
   'rstacruz/vim-closer',
 
@@ -285,7 +283,9 @@ vim.opt.scrolloff = 8
 
 vim.opt.colorcolumn = "80"
 
-vim.keymap.set("n", "<leader>pt", vim.cmd.NvimTreeToggle)
+-- I don't like the type of redo that default "U" does so I'm making it just do
+-- the same redo as "ctrl-r"
+vim.keymap.set("n", "U", vim.cmd.redo)
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader)
 
@@ -333,20 +333,6 @@ require("catppuccin").setup({
 })
 
 vim.cmd.colorscheme "catppuccin"
-
-require("nvim-tree").setup({
-  hijack_netrw = false,
-  view = {
-    number = true,
-    relativenumber = true,
-    width = 400,
-  },
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    },
-  },
-})
 
 function MakeTransparent()
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
