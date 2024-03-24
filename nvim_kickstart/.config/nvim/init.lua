@@ -261,310 +261,282 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 function do_setup_opts()
-    vim.opt.shiftwidth = 4
-    vim.opt.tabstop = 4
-    vim.opt.smartindent = true
+  vim.opt.shiftwidth = 4
+  vim.opt.tabstop = 4
+  vim.opt.softtabstop = 0
+  vim.opt.smartindent = true
+  vim.opt.expandtab = false
 
-    vim.opt.wrap = false
+  vim.opt.wrap = false
 
-    -- Set highlight on search
-    vim.o.hlsearch = false
+  -- Set highlight on search
+  vim.o.hlsearch = false
 
-    -- Make line numbers default
-    vim.wo.number = true
+  -- Make line numbers default
+  vim.wo.number = true
 
-    vim.opt.guicursor =
-    "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+  vim.opt.guicursor =
+  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
-    vim.opt.nu = true
-    vim.opt.relativenumber = true
+  vim.opt.nu = true
+  vim.opt.relativenumber = true
 
-    -- enable line numbers and relative numbers in netrw
-    vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+  -- enable line numbers and relative numbers in netrw
+  vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
-    vim.opt.swapfile = false
-    vim.opt.backup = false
-    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+  vim.opt.swapfile = false
+  vim.opt.backup = false
+  vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
-    vim.opt.incsearch = true
+  vim.opt.incsearch = true
 
-    vim.opt.scrolloff = 8
+  vim.opt.scrolloff = 8
 
-    vim.opt.colorcolumn = "80"
+  vim.opt.colorcolumn = "80"
 
-    -- Enable mouse mode
-    vim.o.mouse = 'a'
+  -- Enable mouse mode
+  vim.o.mouse = 'a'
 
-    -- Sync clipboard between OS and Neovim.
-    --  Remove this option if you want your OS clipboard to remain independent.
-    --  See `:help 'clipboard'`
-    -- vim.o.clipboard = 'unnamedplus'
+  -- Sync clipboard between OS and Neovim.
+  --  Remove this option if you want your OS clipboard to remain independent.
+  --  See `:help 'clipboard'`
+  -- vim.o.clipboard = 'unnamedplus'
 
-    -- Enable break indent
-    vim.o.breakindent = true
+  -- Enable break indent
+  vim.o.breakindent = true
 
-    -- Save undo history
-    vim.o.undofile = true
+  -- Save undo history
+  vim.o.undofile = true
 
-    -- Case-insensitive searching UNLESS \C or capital in search
-    vim.o.ignorecase = true
-    vim.o.smartcase = true
+  -- Case-insensitive searching UNLESS \C or capital in search
+  vim.o.ignorecase = true
+  vim.o.smartcase = true
 
-    -- Keep signcolumn on by default
-    vim.wo.signcolumn = 'yes'
+  -- Keep signcolumn on by default
+  vim.wo.signcolumn = 'yes'
 
-    -- Decrease update time
-    vim.o.updatetime = 50
-    vim.o.timeoutlen = 300
+  -- Decrease update time
+  vim.o.updatetime = 50
+  vim.o.timeoutlen = 300
 
-    -- Set completeopt to have a better completion experience
-    vim.o.completeopt = 'menuone,noselect'
+  -- Set completeopt to have a better completion experience
+  vim.o.completeopt = 'menuone,noselect'
 
-    -- NOTE: You should make sure your terminal supports this
-    vim.o.termguicolors = true
+  -- NOTE: You should make sure your terminal supports this
+  vim.o.termguicolors = true
 end
 
 function do_setup_keymaps()
-    -- I don't like the type of redo that default "U" does so I'm making it just do
-    -- the same redo as "ctrl-r"
-    vim.keymap.set("n", "U", vim.cmd.redo)
-    vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoTree' })
-    vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
-    vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
+  -- I don't like the type of redo that default "U" does so I'm making it just do
+  -- the same redo as "ctrl-r"
+  vim.keymap.set("n", "U", vim.cmd.redo)
+  vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoTree' })
+  vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
+  vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
 
-    vim.keymap.set('n', '<leader>rp', require('telescope.builtin').resume, {})
-    vim.keymap.set('n', '<leader>ps', function()
-        require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") });
-    end)
+  vim.keymap.set('n', '<leader>rp', require('telescope.builtin').resume, {})
+  vim.keymap.set('n', '<leader>ps', function()
+    require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") });
+  end)
 
-    vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-    vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+  vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
-    vim.keymap.set("n", "J", "mzJ`z")
-    vim.keymap.set("n", "<C-d>", "<C-d>zz")
-    vim.keymap.set("n", "<C-u>", "<C-u>zz")
-    vim.keymap.set("n", "n", "nzzzv")
-    vim.keymap.set("n", "N", "Nzzzv")
+  vim.keymap.set("n", "J", "mzJ`z")
+  vim.keymap.set("n", "<C-d>", "<C-d>zz")
+  vim.keymap.set("n", "<C-u>", "<C-u>zz")
+  vim.keymap.set("n", "n", "nzzzv")
+  vim.keymap.set("n", "N", "Nzzzv")
 
-    vim.keymap.set("x", "<leader>p", "\"_dP")
+  vim.keymap.set("x", "<leader>p", "\"_dP")
 
-    vim.keymap.set("n", "<leader>y", "\"+y")
-    vim.keymap.set("v", "<leader>y", "\"+y")
-    vim.keymap.set("n", "<leader>Y", "\"+Y")
+  vim.keymap.set("n", "<leader>y", "\"+y")
+  vim.keymap.set("v", "<leader>y", "\"+y")
+  vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-    vim.keymap.set("n", "<leader>d", "\"_d")
-    vim.keymap.set("v", "<leader>d", "\"_d")
+  vim.keymap.set("n", "<leader>d", "\"_d")
+  vim.keymap.set("v", "<leader>d", "\"_d")
 
-    vim.keymap.set("n", "Q", "<nop>")
-    vim.keymap.set("n", "<leader>f", function()
-        vim.lsp.buf.format()
-    end)
-    vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+  vim.keymap.set("n", "Q", "<nop>")
+  vim.keymap.set("n", "<leader>f", function()
+    vim.lsp.buf.format()
+  end)
+  vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-    -- Keymaps for better default experience
-    -- See `:help vim.keymap.set()`
-    vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+  -- Keymaps for better default experience
+  -- See `:help vim.keymap.set()`
+  vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-    -- Remap for dealing with word wrap
-    vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-    vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+  -- Remap for dealing with word wrap
+  vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+  vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-    -- Diagnostic keymaps
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+  -- Diagnostic keymaps
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 end
 
 function do_setup_harpoon()
-    local harpoon = require("harpoon")
-    harpoon:setup({})
+  local harpoon = require("harpoon")
+  harpoon:setup({})
 
-    vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-    vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+  vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+  vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-    vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-    vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-    vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-    vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+  vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+  vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+  vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+  vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
 
-    -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-    vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
-
-    -- local conf = require("telescope.config").values
-    -- local function toggle_telescope(harpoon_files)
-    --     local file_paths = {}
-    --     for _, item in ipairs(harpoon_files.items) do
-    --         table.insert(file_paths, item.value)
-    --     end
-    --
-    --     require("telescope.pickers").new({}, {
-    --         prompt_title = "Harpoon",
-    --         finder = require("telescope.finders").new_table({
-    --             results = file_paths,
-    --         }),
-    --         previewer = conf.file_previewer({}),
-    --         sorter = conf.generic_sorter({}),
-    --     }):find()
-    -- end
-    --
-    -- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
-    --     { desc = "Open harpoon window" })
+  -- Toggle previous & next buffers stored within Harpoon list
+  vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+  vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 end
 
 function do_setup_theme()
-    require("catppuccin").setup({
-        flavour = "mocha",
-        transparent_background = false,
-    })
+  require("catppuccin").setup({
+    flavour = "mocha",
+    transparent_background = false,
+  })
 
-    vim.cmd.colorscheme "catppuccin"
+  vim.cmd.colorscheme "catppuccin"
 end
 
 function do_setup_telescope()
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
-    local telescope = require('telescope')
-    telescope.setup {
-        defaults = {
-            mappings = {
-                i = {
-                    ['<C-u>'] = false,
-                    ['<C-d>'] = false,
-                },
-            },
-            layout_strategy = "vertical",
+  -- [[ Configure Telescope ]]
+  -- See `:help telescope` and `:help telescope.setup()`
+  local telescope = require('telescope')
+  telescope.setup {
+    defaults = {
+      mappings = {
+        i = {
+          ['<C-u>'] = false,
+          ['<C-d>'] = false,
         },
-    }
+      },
+      layout_strategy = "vertical",
+    },
+  }
 
-    -- Enable telescope fzf native, if installed
-    pcall(telescope.load_extension, 'fzf')
+  -- Enable telescope fzf native, if installed
+  pcall(telescope.load_extension, 'fzf')
 
-    -- See `:help telescope.builtin`
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
-    vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-    vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to telescope to change theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
+  -- See `:help telescope.builtin`
+  local builtin = require('telescope.builtin')
+  vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+  vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+  vim.keymap.set('n', '<leader>/', function()
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      winblend = 10,
+      previewer = false,
     })
-    end, { desc = '[/] Fuzzily search in current buffer' })
+  end, { desc = '[/] Fuzzily search in current buffer' })
 
-    vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
-    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+  vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+  vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+  vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+  vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+  vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+  vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+  vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 end
 
 function MakeTransparent()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 function do_setup_highlight()
-    -- [[ Highlight on yank ]]
-    -- See `:help vim.highlight.on_yank()`
-    local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-    vim.api.nvim_create_autocmd('TextYankPost', {
-        callback = function()
-              vim.highlight.on_yank()
-        end,
-        group = highlight_group,
-        pattern = '*',
-    })
+  -- [[ Highlight on yank ]]
+  -- See `:help vim.highlight.on_yank()`
+  local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+  })
 end
 
 function do_setup_treesitter()
-    vim.filetype.add({ extension = { wgsl = "wgsl" } })
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    parser_config.wgsl = {
-        install_info = {
-            url = "https://github.com/szebniok/tree-sitter-wgsl",
-            files = { "src/parser.c" }
+  -- [[ Configure Treesitter ]]
+  -- See `:help nvim-treesitter`
+  -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
+  vim.defer_fn(function()
+    require('nvim-treesitter.configs').setup {
+      -- Add languages to be installed here that you want installed for treesitter
+      ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript',
+        'typescript', 'vimdoc', 'vim', 'bash' },
+
+      -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+      auto_install = true,
+
+      highlight = { enable = true },
+      indent = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<c-space>',
+          node_incremental = '<c-space>',
+          scope_incremental = '<c-s>',
+          node_decremental = '<M-space>',
         },
+      },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ['aa'] = '@parameter.outer',
+            ['ia'] = '@parameter.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+            ['al'] = '@loop.outer',
+            ['il'] = '@loop.inner',
+            ['ai'] = '@conditional.outer',
+            ['ii'] = '@conditional.inner',
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            [']m'] = '@function.outer',
+            [']]'] = '@class.outer',
+          },
+          goto_next_end = {
+            [']M'] = '@function.outer',
+            [']['] = '@class.outer',
+          },
+          goto_previous_start = {
+            ['[m'] = '@function.outer',
+            ['[['] = '@class.outer',
+          },
+          goto_previous_end = {
+            ['[M'] = '@function.outer',
+            ['[]'] = '@class.outer',
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ['<leader>['] = '@parameter.inner',
+          },
+          swap_previous = {
+            ['<leader>{'] = '@parameter.inner',
+          },
+        },
+      },
     }
-
-    -- [[ Configure Treesitter ]]
-    -- See `:help nvim-treesitter`
-    -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
-    vim.defer_fn(function()
-        require('nvim-treesitter.configs').setup {
-            -- Add languages to be installed here that you want installed for treesitter
-            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript',
-              'typescript', 'vimdoc', 'vim', 'bash', 'wgsl' },
-
-            -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-            auto_install = true,
-
-            highlight = { enable = true },
-            indent = { enable = true },
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = '<c-space>',
-                    node_incremental = '<c-space>',
-                    scope_incremental = '<c-s>',
-                    node_decremental = '<M-space>',
-                },
-            },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-                    keymaps = {
-                        -- You can use the capture groups defined in textobjects.scm
-                        ['aa'] = '@parameter.outer',
-                        ['ia'] = '@parameter.inner',
-                        ['af'] = '@function.outer',
-                        ['if'] = '@function.inner',
-                        ['ac'] = '@class.outer',
-                        ['ic'] = '@class.inner',
-                        ['al'] = '@loop.outer',
-                        ['il'] = '@loop.inner',
-                        ['ai'] = '@conditional.outer',
-                        ['ii'] = '@conditional.inner',
-                    },
-                },
-                move = {
-                    enable = true,
-                    set_jumps = true, -- whether to set jumps in the jumplist
-                    goto_next_start = {
-                        [']m'] = '@function.outer',
-                        [']]'] = '@class.outer',
-                    },
-                    goto_next_end = {
-                        [']M'] = '@function.outer',
-                        [']['] = '@class.outer',
-                    },
-                    goto_previous_start = {
-                        ['[m'] = '@function.outer',
-                        ['[['] = '@class.outer',
-                    },
-                    goto_previous_end = {
-                        ['[M'] = '@function.outer',
-                        ['[]'] = '@class.outer',
-                    },
-                },
-                swap = {
-                    enable = true,
-                    swap_next = {
-                        ['<leader>['] = '@parameter.inner',
-                    },
-                    swap_previous = {
-                        ['<leader>{'] = '@parameter.inner',
-                    },
-                    },
-                },
-            }
-    end, 0)
+  end, 0)
 end
-
 
 do_setup_opts()
 do_setup_keymaps()
