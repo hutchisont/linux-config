@@ -8,9 +8,7 @@ if status is-interactive
 
     # Scripts of things I've installed manually and don't want to pollute the system files with
     set -x GPG_TTY $(tty)
-    set -x PATH "$PATH:/home/tyler/workspace/programs"
-    # Added by Toolbox App
-    set -x PATH "$PATH:/home/tyler/.local/share/JetBrains/Toolbox/scripts"
+    set -x PATH "$PATH:/home/tyler/workspace/programs:/home/tyler/go/bin"
 
     set -x EDITOR nvim
     
