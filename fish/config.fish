@@ -12,7 +12,6 @@ if status is-interactive
 
     set -x EDITOR nvim
     
-    alias restartPlasma='kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1'
     alias xrandrLeftMonitor='xrandr --output HDMI-0 --auto --left-of DP-0'
     alias xrandrRightMonitor='xrandr --output DP-0 --auto --right-of HDMI-0'
     alias vim='nvim'
