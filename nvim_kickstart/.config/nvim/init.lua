@@ -283,7 +283,7 @@ function do_setup_keymaps()
   vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
   end)
-  vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+  vim.keymap.set("n", "<leader>su", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[Su]bstitution on word under cursor' })
 
   -- Keymaps for better default experience
   -- See `:help vim.keymap.set()`
