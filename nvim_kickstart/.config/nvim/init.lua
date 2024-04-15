@@ -28,10 +28,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -169,20 +165,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
-
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -195,31 +177,7 @@ require('lazy').setup({
   'rstacruz/vim-closer',
 
   'github/copilot.vim',
-
-  {
-    "David-Kunz/gen.nvim",
-    opts = {
-      model = "codellama",    -- The default model to use.
-      display_mode = "split", -- The display mode. Can be "float" or "split".
-      show_prompt = false,    -- Shows the Prompt submitted to Ollama.
-      show_model = false,     -- Displays which model you are using at the beginning of your chat session.
-      no_auto_close = false,  -- Never closes the window automatically.
-      init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
-      -- Function to initialize Ollama
-      command = "curl --silent --no-buffer -X POST http://localhost:11434/api/generate -d $body",
-      -- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
-      -- This can also be a lua function returning a command string, with options as the input parameter.
-      -- The executed command must return a JSON object with { response, context }
-      -- (context property is optional).
-      list_models = '<function>', -- Retrieves a list of model names
-      debug = false               -- Prints errors and the command which is run.
-    }
-  },
 }, {})
-
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 function do_setup_opts()
   vim.opt.shiftwidth = 4
