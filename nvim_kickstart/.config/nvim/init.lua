@@ -171,7 +171,7 @@ require('lazy').setup({
 
   'rstacruz/vim-closer',
 
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
 }, {})
 
 function do_setup_opts()
