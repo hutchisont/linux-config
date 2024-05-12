@@ -102,6 +102,14 @@ require('lazy').setup({
 
   { "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
   { "rose-pine/neovim",     name = "rose-pine" },
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require 'nordic' .load()
+    end
+  },
 
   {
     -- Set lualine as statusline
@@ -110,8 +118,9 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        -- theme = 'catppuccin',
-        theme = 'rose-pine',
+        theme = 'catppuccin',
+        -- theme = 'rose-pine',
+        -- theme = 'nordic',
         component_separators = '|',
         section_separators = '',
       },
@@ -320,7 +329,7 @@ function do_setup_harpoon()
   vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 end
 
-function do_setup_rose_pine()
+function do_setup_rose_pine_theme()
   require("rose-pine").setup({
     variant = "auto",      -- auto, main, moon, or dawn
     dark_variant = "main", -- main, moon, or dawn
@@ -391,7 +400,7 @@ function do_setup_rose_pine()
   vim.cmd.colorscheme "rose-pine"
 end
 
-function do_setup_catpuccin()
+function do_setup_catpuccin_theme()
     require("catppuccin").setup({
     flavour = "mocha",
     transparent_background = false,
@@ -400,8 +409,12 @@ function do_setup_catpuccin()
   vim.cmd.colorscheme "catppuccin"
 end
 
+function do_setup_nordic_theme()
+  vim.cmd.colorscheme 'nordic'
+end
+
 function do_setup_theme()
-  do_setup_rose_pine()
+  do_setup_catpuccin_theme()
 end
 
 function do_setup_telescope()
