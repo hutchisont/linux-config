@@ -8,11 +8,13 @@ if status is-interactive
 
     # Scripts of things I've installed manually and don't want to pollute the system files with
     set -x GPG_TTY $(tty)
-    set -x PATH "$HOME/.pyenv/bin:$PATH:$HOME/workspace/programs:$HOME/go/bin"
+    fish_add_path "$HOME/go/bin"
+    fish_add_path "$HOME/workspace/programs"
+    #set -x PATH "$HOME/.pyenv/bin:$PATH"
 
     set -x EDITOR nvim
 
-    pyenv init - | source
+    #pyenv init - | source
 
     alias xrandrLeftMonitor='xrandr --output HDMI-0 --auto --left-of DP-0'
     alias xrandrRightMonitor='xrandr --output DP-0 --auto --right-of HDMI-0'
