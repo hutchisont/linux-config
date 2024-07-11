@@ -10,6 +10,7 @@ if status is-interactive
     set -x GPG_TTY $(tty)
     fish_add_path "$HOME/go/bin"
     fish_add_path "$HOME/workspace/programs"
+    fish_add_path "$HOME/.local/bin"
     #set -x PATH "$HOME/.pyenv/bin:$PATH"
 
     set -x EDITOR nvim
