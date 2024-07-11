@@ -10,6 +10,7 @@ if status is-interactive
     set -x GPG_TTY $(tty)
     fish_add_path "$HOME/go/bin"
     fish_add_path "$HOME/workspace/programs"
+    fish_add_path "$HOME/.cargo/bin"
     fish_add_path "$HOME/.local/bin"
     #set -x PATH "$HOME/.pyenv/bin:$PATH"
 
@@ -27,4 +28,3 @@ if status is-interactive
     alias gloga='git log --oneline --decorate --all'
     alias ls='ls -al --color=auto'
 end
-
