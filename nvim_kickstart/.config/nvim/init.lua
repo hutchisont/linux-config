@@ -125,14 +125,14 @@ require('lazy').setup({
     },
   },
 
-  { "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
-  { "rose-pine/neovim",     name = "rose-pine" },
+  { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
+  { "rose-pine/neovim", name = "rose-pine" },
   {
     'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-        require 'nordic' .load()
+      require 'nordic'.load()
     end
   },
 
@@ -369,8 +369,8 @@ function do_setup_rose_pine_theme()
 
     enable = {
       terminal = true,
-      legacy_highlights = true,   -- Improve compatibility for previous versions of Neovim
-      migrations = true,          -- Handle deprecated options automatically
+      legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+      migrations = true,        -- Handle deprecated options automatically
     },
 
     styles = {
@@ -432,7 +432,7 @@ function do_setup_rose_pine_theme()
 end
 
 function do_setup_catpuccin_theme()
-    require("catppuccin").setup({
+  require("catppuccin").setup({
     flavour = "mocha",
     transparent_background = false,
   })
