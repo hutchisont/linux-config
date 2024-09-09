@@ -26,5 +26,6 @@ if status is-interactive
     alias gitfa='git fetch --all --tags --force'
     alias glog='git log --oneline --decorate'
     alias gloga='git log --oneline --decorate --all'
-    alias lsa='ls -al --color=auto'
+    alias ls='ls -a --color=auto'
+    alias lsal='ls -al --color=auto'
 end
