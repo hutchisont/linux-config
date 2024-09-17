@@ -207,7 +207,11 @@ require('lazy').setup({
   'nvim-treesitter/nvim-treesitter-context',
   'mbbill/undotree',
 
-  'rstacruz/vim-closer',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
 
   -- 'github/copilot.vim',
 }, {})
@@ -514,7 +518,7 @@ function do_setup_treesitter()
   vim.defer_fn(function()
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
-      ensure_installed = { 'cpp', 'go', 'lua', 'python', 'rust', 'vim', 'bash' },
+      ensure_installed = { 'cpp', 'go', 'lua', 'python', 'vim', 'bash' },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,
