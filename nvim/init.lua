@@ -135,6 +135,12 @@ require('lazy').setup({
       require 'nordic'.load()
     end
   },
+  {
+    "killitar/obscure.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {}
+  },
 
   {
     -- Set lualine as statusline
@@ -143,9 +149,10 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'catppuccin',
+        -- theme = 'catppuccin',
         -- theme = 'rose-pine',
         -- theme = 'nordic',
+        theme = 'obscure',
         component_separators = '|',
         section_separators = '',
       },
@@ -217,8 +224,6 @@ require('lazy').setup({
 }, {})
 
 function do_setup_opts()
-  vim.opt.shiftwidth = 4
-  vim.opt.tabstop = 4
   vim.opt.softtabstop = 0
   vim.opt.smartindent = true
   vim.opt.expandtab = false
@@ -450,8 +455,12 @@ function do_setup_nordic_theme()
   vim.cmd.colorscheme 'nordic'
 end
 
+function do_setup_obscure_theme()
+  vim.cmd.colorscheme 'obscure'
+end
+
 function do_setup_theme()
-  do_setup_catpuccin_theme()
+  do_setup_obscure_theme()
 end
 
 function do_setup_telescope()
