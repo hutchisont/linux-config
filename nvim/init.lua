@@ -309,7 +309,7 @@ function do_setup_keymaps()
   vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoTree' })
   vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
   vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
-  vim.keymap.set("n", "<leader>gb", ":Git blame", { desc = "[G]it blame"})
+  vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[G]it blame"})
 
   vim.keymap.set('n', '<leader>ps', function()
     require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") });
