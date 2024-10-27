@@ -85,9 +85,14 @@ button:hover {
     border-bottom: 2px solid @mauve;
 }
 
-#pulseaudio {
+#bluetooth {
     color: @blue;
     border-bottom: 2px solid @blue;
+}
+
+#pulseaudio {
+    color: @teal;
+    border-bottom: 2px solid @teal;
 }
 
 #network {
