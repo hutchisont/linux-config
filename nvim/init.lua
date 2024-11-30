@@ -309,7 +309,7 @@ function do_setup_keymaps()
   vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoTree' })
   vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
   vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
-  vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[G]it blame"})
+  vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[G]it blame" })
 
   vim.keymap.set('n', '<leader>ps', function()
     require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") });
@@ -463,6 +463,8 @@ function do_setup_obscure_theme()
 end
 
 function do_setup_theme()
+  -- do_setup_catpuccin_theme()
+  -- do_setup_nordic_theme()
   do_setup_obscure_theme()
 end
 
@@ -532,7 +534,7 @@ function do_setup_treesitter()
   vim.defer_fn(function()
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
-      ensure_installed = { 'cpp', 'go', 'lua', 'python', 'vim', 'bash' },
+      ensure_installed = { 'cpp', 'go', 'lua', 'python', 'vim', 'bash', 'odin' },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,
