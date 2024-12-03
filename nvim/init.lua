@@ -222,6 +222,16 @@ require('lazy').setup({
     config = true
   },
 
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  },
+
   -- 'github/copilot.vim',
 }, {})
 
@@ -307,7 +317,9 @@ function do_setup_keymaps()
   -- the same redo as "ctrl-r"
   vim.keymap.set("n", "U", vim.cmd.redo)
   vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoTree' })
-  vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
+  -- switch based on wanting to use oil or netrw... having oil setup disables Ex by default it seems
+  vim.keymap.set("n", "<leader>pe", vim.cmd.Oil, { desc = 'Open Oil' })
+  -- vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
   vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
   vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[G]it blame" })
 
@@ -735,6 +747,10 @@ function do_setup_nvim_cmp()
   }
 end
 
+function do_setup_oil()
+  require("oil").setup()
+end
+
 do_setup_opts()
 do_setup_trim_whitespace_on_save()
 do_setup_keymaps()
@@ -745,3 +761,4 @@ do_setup_highlight()
 do_setup_treesitter()
 do_setup_lsp()
 do_setup_nvim_cmp()
+do_setup_oil()
