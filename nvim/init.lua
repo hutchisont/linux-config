@@ -750,7 +750,22 @@ function do_setup_nvim_cmp()
 end
 
 function do_setup_oil()
-  require("oil").setup()
+  require("oil").setup({
+    columns = {
+      "icon",
+      "permissions",
+      "size",
+      -- "mtime",
+    },
+    -- Window-local options to use for oil buffers
+    win_options = {
+      signcolumn = "yes",
+    },
+    view_options = {
+      -- Show files and directories that start with "."
+      show_hidden = true,
+    },
+  })
 end
 
 do_setup_opts()
