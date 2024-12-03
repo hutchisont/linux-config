@@ -240,6 +240,8 @@ function do_setup_opts()
   vim.opt.smartindent = true
   vim.opt.expandtab = false
 
+  vim.opt.cursorline = true
+
   vim.opt.wrap = false
 
   -- Set highlight on search
