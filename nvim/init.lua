@@ -304,7 +304,7 @@ end
 function do_setup_trim_whitespace_on_save()
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.cpp", "*.c", "*.hpp", "*.h", "*.py", "*.go", "*.xml",
-      "*.fish", "*.sh",
+      "*.fish", "*.sh", "*.odin", "*.conf"
     },
     callback = function()
       local save_cursor = vim.fn.getpos(".")
