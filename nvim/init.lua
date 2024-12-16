@@ -156,9 +156,6 @@ require('lazy').setup({
     },
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -188,6 +185,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  'nvim-treesitter/nvim-treesitter-context',
 
   {
     "ThePrimeagen/harpoon",
@@ -195,7 +193,6 @@ require('lazy').setup({
     dependencies = { "nvim-lua/plenary.nvim" }
   },
 
-  'nvim-treesitter/nvim-treesitter-context',
   'mbbill/undotree',
 
   {
