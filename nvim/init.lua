@@ -128,21 +128,6 @@ require('lazy').setup({
   },
 
   { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
-  { "rose-pine/neovim", name = "rose-pine" },
-  {
-    'AlexvZyl/nordic.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require 'nordic'.load()
-    end
-  },
-  {
-    "killitar/obscure.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {}
-  },
 
   {
     -- Set lualine as statusline
@@ -151,10 +136,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        -- theme = 'catppuccin',
-        -- theme = 'rose-pine',
-        -- theme = 'nordic',
-        theme = 'obscure',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -477,9 +459,9 @@ function do_setup_obscure_theme()
 end
 
 function do_setup_theme()
-  -- do_setup_catpuccin_theme()
+  do_setup_catpuccin_theme()
   -- do_setup_nordic_theme()
-  do_setup_obscure_theme()
+  -- do_setup_obscure_theme()
 end
 
 function do_setup_telescope()
