@@ -127,7 +127,7 @@ require('lazy').setup({
     },
   },
 
-  { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   {
     -- Set lualine as statusline
@@ -447,18 +447,8 @@ function do_setup_catpuccin_theme()
   vim.cmd.colorscheme "catppuccin"
 end
 
-function do_setup_nordic_theme()
-  vim.cmd.colorscheme 'nordic'
-end
-
-function do_setup_obscure_theme()
-  vim.cmd.colorscheme 'obscure'
-end
-
 function do_setup_theme()
   do_setup_catpuccin_theme()
-  -- do_setup_nordic_theme()
-  -- do_setup_obscure_theme()
 end
 
 function do_setup_telescope()
