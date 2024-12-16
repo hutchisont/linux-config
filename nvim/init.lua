@@ -187,11 +187,7 @@ require('lazy').setup({
   },
   'nvim-treesitter/nvim-treesitter-context',
 
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
-  },
+  require 'plugins.harpoon',
 
   'mbbill/undotree',
 
@@ -742,7 +738,6 @@ do_setup_trim_whitespace_on_save()
 do_setup_keymaps()
 do_setup_theme()
 do_setup_telescope()
-do_setup_harpoon()
 do_setup_highlight()
 do_setup_treesitter()
 do_setup_lsp()
