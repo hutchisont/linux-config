@@ -197,15 +197,7 @@ require('lazy').setup({
     config = true
   },
 
-  {
-    'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-  },
+  require 'plugins.oil',
 
   -- 'github/copilot.vim',
 }, {})
@@ -626,24 +618,6 @@ function do_setup_nvim_cmp()
   }
 end
 
-function do_setup_oil()
-  require("oil").setup({
-    columns = {
-      "icon",
-      "permissions",
-      "size",
-      -- "mtime",
-    },
-    -- Window-local options to use for oil buffers
-    win_options = {
-      signcolumn = "yes",
-    },
-    view_options = {
-      -- Show files and directories that start with "."
-      show_hidden = true,
-    },
-  })
-end
 
 do_setup_opts()
 do_setup_trim_whitespace_on_save()
@@ -654,4 +628,3 @@ do_setup_highlight()
 do_setup_treesitter()
 do_setup_lsp()
 do_setup_nvim_cmp()
-do_setup_oil()
