@@ -18,4 +18,15 @@ Reboot for the change to take place.
 
 If you want to disable this functionality, just remove the file.
 
+###Hyprland
 
+Hyprland can be difficult to get everything working as its not a full DE.
+
+Lorenzo's articles on hyprland, really useful
+
+All of them should be here: https://www.lorenzobettini.it/tag/hyprland/
+
+Ones I found especially useful:  
+
+* https://www.lorenzobettini.it/2024/08/better-kde-theming-and-styling-in-hyprland/  
+* https://www.lorenzobettini.it/2024/05/fixing-the-empty-open-with-in-dolphin-in-hyprland/
