@@ -27,17 +27,12 @@ vim.o.undofile = true
 
 vim.opt.incsearch = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 
 vim.opt.colorcolumn = "80"
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
--- vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
