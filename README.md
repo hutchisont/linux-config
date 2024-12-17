@@ -18,7 +18,7 @@ Reboot for the change to take place.
 
 If you want to disable this functionality, just remove the file.
 
-###Hyprland
+### Hyprland
 
 Hyprland can be difficult to get everything working as its not a full DE.
 
