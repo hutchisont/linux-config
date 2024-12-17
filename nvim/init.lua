@@ -21,34 +21,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'mbbill/undotree',
   'tpope/vim-fugitive',
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   require 'plugins.autocompletion',
   require 'plugins.autopairs',
   require 'plugins.catppuccin',
   require 'plugins.gitsigns',
   require 'plugins.harpoon',
+  require 'plugins.indent-blanklines',
   require 'plugins.lsp',
   require 'plugins.lualine',
   require 'plugins.oil',
   require 'plugins.telescope',
   require 'plugins.treesitter',
   require 'plugins.which-key',
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {
-      indent = {
-        tab_char = "→",
-      },
-    },
-  },
 
 }, {})
 
