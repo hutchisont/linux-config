@@ -6,9 +6,7 @@ vim.opt.cursorline = true
 
 vim.opt.wrap = false
 
--- Set highlight on search
-vim.opt.hlsearch = false
-
+-- keeps cursor white, its turning some sort of light pink on me without it, not sure why
 vim.opt.guicursor =
 "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
