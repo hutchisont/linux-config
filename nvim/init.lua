@@ -21,26 +21,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'mbbill/undotree',
+  'tpope/vim-fugitive',
 
+  require 'plugins.autocompletion',
+  require 'plugins.autopairs',
+  require 'plugins.catppuccin',
+  require 'plugins.gitsigns',
+  require 'plugins.harpoon',
   require 'plugins.lsp',
-
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
+  require 'plugins.oil',
+  require 'plugins.telescope',
+  require 'plugins.treesitter',
 
   -- Useful plugin to show you pending keybinds.
   {
@@ -61,12 +54,6 @@ require('lazy').setup({
       }
     end,
   },
-
-  'tpope/vim-fugitive',
-
-  require 'plugins.gitsigns',
-
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   {
     -- Set lualine as statusline
@@ -95,66 +82,9 @@ require('lazy').setup({
     },
   },
 
-  require 'plugins.telescope',
-  require 'plugins.treesitter',
-  require 'plugins.harpoon',
-  require 'plugins.autopairs',
-
-  'mbbill/undotree',
-
-  require 'plugins.oil',
 }, {})
 
-require 'personal.opts'
 require 'personal.autocmds'
 require 'personal.keymaps'
-
-
-
-function do_setup_catpuccin_theme()
-  require("catppuccin").setup({
-    flavour = "mocha",
-    transparent_background = false,
-  })
-
-  vim.cmd.colorscheme "catppuccin"
-end
-
-function do_setup_theme()
-  do_setup_catpuccin_theme()
-end
-
-function do_setup_nvim_cmp()
-  -- [[ Configure nvim-cmp ]]
-  -- See `:help cmp`
-  local cmp = require 'cmp'
-  local luasnip = require 'luasnip'
-  require('luasnip.loaders.from_vscode').lazy_load()
-  luasnip.config.setup {}
-
-  cmp.setup {
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
-    mapping = cmp.mapping.preset.insert {
-      ['<C-n>'] = cmp.mapping.select_next_item(),
-      ['<C-p>'] = cmp.mapping.select_prev_item(),
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete {},
-      ['<C-y>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      },
-    },
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    },
-  }
-end
-
-do_setup_theme()
-do_setup_nvim_cmp()
+require 'personal.opts'
+require 'personal.theme'
