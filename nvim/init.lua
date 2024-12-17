@@ -31,6 +31,7 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.harpoon',
   require 'plugins.lsp',
+  require 'plugins.lualine',
   require 'plugins.oil',
   require 'plugins.telescope',
   require 'plugins.treesitter',
@@ -53,20 +54,6 @@ require('lazy').setup({
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       }
     end,
-  },
-
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'catppuccin',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
   },
 
   {
