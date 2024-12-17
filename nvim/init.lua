@@ -201,20 +201,8 @@ require('lazy').setup({
 }, {})
 
 require 'opts'
+require 'autocmds'
 
-
-function do_setup_trim_whitespace_on_save()
-  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*.cpp", "*.c", "*.hpp", "*.h", "*.py", "*.go", "*.xml",
-      "*.fish", "*.sh", "*.odin", "*.conf"
-    },
-    callback = function()
-      local save_cursor = vim.fn.getpos(".")
-      pcall(function() vim.cmd [[%s/\s\+$//e]] end)
-      vim.fn.setpos(".", save_cursor)
-    end,
-  })
-end
 
 function do_setup_keymaps()
   -- I don't like the type of redo that default "U" does so I'm making it just do
@@ -325,24 +313,6 @@ function do_setup_telescope()
   vim.keymap.set('n', '<leader>st', builtin.treesitter, { desc = '[S]earch by [T]reesitter' })
   vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
   vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-end
-
-function MakeTransparent()
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
-function do_setup_highlight()
-  -- [[ Highlight on yank ]]
-  -- See `:help vim.highlight.on_yank()`
-  local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-  vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-      vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
-  })
 end
 
 function do_setup_treesitter()
@@ -553,11 +523,9 @@ function do_setup_nvim_cmp()
   }
 end
 
-do_setup_trim_whitespace_on_save()
 do_setup_keymaps()
 do_setup_theme()
 do_setup_telescope()
-do_setup_highlight()
 do_setup_treesitter()
 do_setup_lsp()
 do_setup_nvim_cmp()
