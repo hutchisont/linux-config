@@ -2,6 +2,9 @@
 -- vim.opt.smartindent = true
 -- vim.opt.expandtab = false
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 0 -- make << and >> for shifting an indent level use tabstop
+
 vim.opt.cursorline = true
 
 vim.opt.wrap = false
