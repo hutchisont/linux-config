@@ -18,8 +18,6 @@ if status is-interactive
 
     #pyenv init - | source
 
-    alias xrandrLeftMonitor='xrandr --output HDMI-0 --auto --left-of DP-0'
-    alias xrandrRightMonitor='xrandr --output DP-0 --auto --right-of HDMI-0'
     alias vim='nvim'
     alias gits='git status'
     alias gitf='git fetch'
