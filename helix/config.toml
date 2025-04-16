@@ -1,10 +1,17 @@
-theme = "catppuccin_mocha"
+theme = "kanagawa-dragon"
 
 [editor]
 line-number = "relative"
 cursorline = true
 mouse = true
+end-of-line-diagnostics = "hint"
 
-[keys.insert]
-# Hate fighting the cursor, esc is too much muscle memory for me to change that
-esc = ["collapse_selection", "normal_mode"]
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.indent-guides]
+render = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
