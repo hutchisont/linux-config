@@ -1,0 +1,10 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+cursorline = true
+mouse = true
+
+[keys.insert]
+# Hate fighting the cursor, esc is too much muscle memory for me to change that
+esc = ["collapse_selection", "normal_mode"]
