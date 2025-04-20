@@ -10,6 +10,7 @@ return {
         "size",
         -- "mtime",
       },
+      watch_for_changes = true,
       -- Window-local options to use for oil buffers
       win_options = {
         signcolumn = "yes",
