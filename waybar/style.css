@@ -57,6 +57,7 @@ button:hover {
 #pulseaudio,
 #clock,
 #battery,
+#upower,
 #cpu,
 #memory,
 #disk,
@@ -110,6 +111,11 @@ button:hover {
 }
 
 #battery {
+    color: @green;
+    border-bottom: 2px solid @green;
+}
+
+#upower {
     color: @green;
     border-bottom: 2px solid @green;
 }
