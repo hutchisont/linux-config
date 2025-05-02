@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["tray", "upower#mouse", "pulseaudio", "clock"],
+  "modules-right": ["tray", /*"upower#mouse",*/ "pulseaudio", "clock"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>  </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{calendar}</big>"
@@ -18,8 +18,8 @@
       },
       "on-click": "pavucontrol"
   },
-  "upower#mouse": {
-    "native-path": "hidpp_battery_0",
-    "format": " 󰦋 ",
-  },
+  // "upower#mouse": {
+  //   "native-path": "hidpp_battery_0",
+  //   "format": " 󰦋 ",
+  // },
 }
