@@ -46,3 +46,5 @@ require 'personal.keymaps'
 require 'personal.opts'
 require 'personal.theme'
 require 'personal.diagnostics'
+
+vim.lsp.enable('ols')
