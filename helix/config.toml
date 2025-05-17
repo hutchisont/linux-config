@@ -1,10 +1,10 @@
-theme = "kanagawa-dragon"
+theme = "monokai_aqua"
 
 [editor]
-line-number = "relative"
 cursorline = true
-mouse = true
 end-of-line-diagnostics = "hint"
+line-number = "relative"
+mouse = true
 
 [editor.cursor-shape]
 insert = "bar"
