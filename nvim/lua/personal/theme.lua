@@ -1,1 +1,1 @@
-vim.cmd.colorscheme "morta"
+vim.cmd.colorscheme "tokyonight-night"

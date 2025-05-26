@@ -27,8 +27,7 @@ require('lazy').setup({
 
   require 'plugins.autocompletion',
   require 'plugins.autopairs',
-  require 'plugins.catppuccin',
-  require 'plugins.morta',
+  require 'plugins.tokyonight',
   require 'plugins.gitsigns',
   require 'plugins.harpoon',
   require 'plugins.indent-blanklines',
