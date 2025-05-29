@@ -47,3 +47,4 @@ require 'personal.theme'
 require 'personal.diagnostics'
 
 vim.lsp.enable('ols')
+-- vim.lsp.set_log_level('debug')
