@@ -45,6 +45,6 @@ require 'personal.keymaps'
 require 'personal.opts'
 require 'personal.theme'
 require 'personal.diagnostics'
+require 'personal.lsp'
 
-vim.lsp.enable('ols')
 -- vim.lsp.set_log_level('debug')
