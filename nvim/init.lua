@@ -43,7 +43,6 @@ require('lazy').setup({
 require 'personal.autocmds'
 require 'personal.keymaps'
 require 'personal.opts'
-require 'personal.theme'
 require 'personal.diagnostics'
 require 'personal.enabled_lsps'
 
