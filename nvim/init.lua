@@ -27,7 +27,6 @@ require('lazy').setup({
 
   require 'plugins.autocompletion',
   require 'plugins.autopairs',
-  require 'plugins.tokyonight',
   require 'plugins.gitsigns',
   require 'plugins.harpoon',
   require 'plugins.indent-blanklines',
@@ -35,6 +34,7 @@ require('lazy').setup({
   require 'plugins.lualine',
   require 'plugins.oil',
   require 'plugins.telescope',
+  require 'plugins.kanso',
   require 'plugins.treesitter',
   require 'plugins.which-key',
 
