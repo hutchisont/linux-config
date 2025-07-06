@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = 'Toggle UndoT
 -- switch based on wanting to use oil or netrw... having oil setup disables Ex by default it seems
 vim.keymap.set("n", "<leader>pe", vim.cmd.Oil, { desc = 'Open Oil' })
 -- vim.keymap.set("n", "<leader>pe", vim.cmd.Ex, { desc = 'Open Netrw' })
-vim.keymap.set("n", "<leader>gh", vim.cmd.ClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
+vim.keymap.set("n", "<leader>gh", vim.cmd.LspClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
 -- this maybe should be in a config with fugitive?
 vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[G]it blame" })
 
