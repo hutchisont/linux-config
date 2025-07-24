@@ -34,7 +34,7 @@ require('lazy').setup({
   require 'plugins.lualine',
   require 'plugins.oil',
   require 'plugins.telescope',
-  require 'plugins.kanso',
+  require 'plugins.nordic',
   require 'plugins.treesitter',
   require 'plugins.which-key',
 
