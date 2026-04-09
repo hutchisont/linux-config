@@ -54,6 +54,7 @@ vim.o.splitkeep      = 'screen'   -- Reduce scroll during window split
 vim.o.splitright     = true       -- Vertical splits will be to the right
 vim.o.winborder      = 'single'   -- Use border in floating windows
 vim.o.wrap           = false      -- Don't visually wrap lines (toggle with \w)
+vim.opt.scrolloff    = 10         -- Number of lines from top/bottom to keep the cursor when scrolling, helps keep text you're looking at more central
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 
