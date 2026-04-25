@@ -55,6 +55,7 @@ vim.o.splitright     = true       -- Vertical splits will be to the right
 vim.o.winborder      = 'single'   -- Use border in floating windows
 vim.o.wrap           = false      -- Don't visually wrap lines (toggle with \w)
 vim.opt.scrolloff    = 10         -- Number of lines from top/bottom to keep the cursor when scrolling, helps keep text you're looking at more central
+vim.opt.colorcolumn = "80"        -- Color column
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 
@@ -75,11 +76,11 @@ vim.o.formatoptions = 'rqnl1j'-- Improve comment editing
 vim.o.ignorecase    = true    -- Ignore case during search
 vim.o.incsearch     = true    -- Show search matches while typing
 vim.o.infercase     = true    -- Infer case in built-in completion
-vim.o.shiftwidth    = 2       -- Use this number of spaces for indentation
+vim.o.shiftwidth    = 3       -- Use this number of spaces for indentation
 vim.o.smartcase     = true    -- Respect case if search pattern has upper case
 vim.o.smartindent   = true    -- Make indenting smart
 vim.o.spelloptions  = 'camel' -- Treat camelCase word parts as separate words
-vim.o.tabstop       = 2       -- Show tab as this number of spaces
+vim.o.tabstop       = 3       -- Show tab as this number of spaces
 vim.o.virtualedit   = 'block' -- Allow going past end of line in blockwise mode
 
 vim.o.iskeyword = '@,48-57,_,192-255,-' -- Treat dash as `word` textobject part
