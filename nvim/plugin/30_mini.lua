@@ -322,15 +322,6 @@ end)
 -- - `:h MiniAlign-algorithm` - how alignment is done on algorithmic level
 later(function() require('mini.align').setup() end)
 
--- Animate common Neovim actions. Like cursor movement, scroll, window resize,
--- window open, window close. Animations are done based on Neovim events and
--- don't require custom mappings.
---
--- It is not enabled by default because its effects are a matter of taste.
--- Also scroll and resize have some unwanted side effects (see `:h mini.animate`).
--- Uncomment next line (use `gcc`) to enable.
--- later(function() require('mini.animate').setup() end)
-
 -- Go forward/backward with square brackets. Implements consistent sets of mappings
 -- for selected targets (like buffers, diagnostic, quickfix list entries, etc.).
 -- Example usage:
@@ -439,13 +430,6 @@ later(function() require('mini.cmdline').setup() end)
 -- still enabled as it provides more customization opportunities.
 later(function() require('mini.comment').setup() end)
 
--- Autohighlight word under cursor with a customizable delay.
--- Word boundaries are defined based on `:h 'iskeyword'` option.
---
--- It is not enabled by default because its effects are a matter of taste.
--- Uncomment next line (use `gcc`) to enable.
--- later(function() require('mini.cursorword').setup() end)
-
 -- Work with diff hunks that represent the difference between the buffer text and
 -- some reference text set by a source. Default source uses text from Git index.
 -- Also provides summary info used in developer section of 'mini.statusline'.
@@ -512,13 +496,6 @@ end)
 -- - `:h MiniIndentscope.gen_animation` - available animation rules
 later(function() require('mini.indentscope').setup() end)
 
--- Jump to next/previous single character. It implements "smarter `fFtT` keys"
--- (see `:h f`) that work across multiple lines, start "jumping mode", and
--- highlight all target matches. Example usage:
--- - `fxff` - move *f*orward onto next character "x", then next, and next again
--- - `dt)` - *d*elete *t*ill next closing parenthesis (`)`)
-later(function() require('mini.jump').setup() end)
-
 -- Jump within visible lines to pre-defined spots via iterative label filtering.
 -- Spots are computed by a configurable spotter function. Example usage:
 -- - Lock eyes on desired location to jump
@@ -554,40 +531,6 @@ later(function()
   MiniKeymap.map_multistep('i', '<BS>', { 'minipairs_bs' })
 end)
 
--- Window with text overview. It is displayed on the right hand side. Can be used
--- for quick overview and navigation. Hidden by default. Example usage:
--- - `<Leader>mt` - toggle map window
--- - `<Leader>mf` - focus on the map for fast navigation
--- - `<Leader>ms` - change map's side (if it covers something underneath)
---
--- See also:
--- - `:h MiniMap.gen_encode_symbols` - list of symbols to use for text encoding
--- - `:h MiniMap.gen_integration` - list of integrations to show in the map
---
--- NOTE: Might introduce lag on very big buffers (10000+ lines)
-later(function()
-  local map = require('mini.map')
-  map.setup({
-    -- Use Braille dots to encode text
-    symbols = { encode = map.gen_encode_symbols.dot('4x2') },
-    -- Show built-in search matches, 'mini.diff' hunks, and diagnostic entries
-    integrations = {
-      map.gen_integration.builtin_search(),
-      map.gen_integration.diff(),
-      map.gen_integration.diagnostic(),
-    },
-  })
-
-  -- Map built-in navigation characters to force map refresh
-  for _, key in ipairs({ 'n', 'N', '*', '#' }) do
-    local rhs = key
-      -- Also open enough folds when jumping to the next match
-      .. 'zv'
-      .. '<Cmd>lua MiniMap.refresh({}, { lines = false, scrollbar = false })<CR>'
-    vim.keymap.set('n', key, rhs)
-  end
-end)
-
 -- Move any selection in any direction. Example usage in Normal mode:
 -- - `<M-j>`/`<M-k>` - move current line down / up
 -- - `<M-h>`/`<M-l>` - decrease / increase indent of current line
@@ -595,37 +538,6 @@ end)
 -- Example usage in Visual mode:
 -- - `<M-h>`/`<M-j>`/`<M-k>`/`<M-l>` - move selection left/down/up/right
 later(function() require('mini.move').setup() end)
-
--- Text edit operators. All operators have mappings for:
--- - Regular operator (waits for motion/textobject to use)
--- - Current line action (repeat second character of operator to activate)
--- - Act on visual selection (type operator in Visual mode)
---
--- Example usage:
--- - `griw` - replace (`gr`) *i*inside *w*ord
--- - `gmm` - multiple/duplicate (`gm`) current line (extra `m`)
--- - `vipgs` - *v*isually select *i*nside *p*aragraph and sort it (`gs`)
--- - `gxiww.` - exchange (`gx`) *i*nside *w*ord with next word (`w` to navigate
---   to it and `.` to repeat exchange operator)
--- - `g==` - execute current line as Lua code and replace with its output.
---   For example, typing `g==` over line `vim.lsp.get_clients()` shows
---   information about all available LSP clients.
---
--- See also:
--- - `:h MiniOperators-mappings` - overview of how mappings are created
--- - `:h MiniOperators-overview` - overview of present operators
-later(function()
-  require('mini.operators').setup()
-
-  -- Create mappings for swapping adjacent arguments. Notes:
-  -- - Relies on `a` argument textobject from 'mini.ai'.
-  -- - It is not 100% reliable, but mostly works.
-  -- - It overrides `:h (` and `:h )`.
-  -- Explanation: `gx`-`ia`-`gx`-`ila` <=> exchange current and last argument
-  -- Usage: when on `a` in `(aa, bb)` press `)` followed by `(`.
-  vim.keymap.set('n', '(', 'gxiagxila', { remap = true, desc = 'Swap arg left' })
-  vim.keymap.set('n', ')', 'gxiagxina', { remap = true, desc = 'Swap arg right' })
-end)
 
 -- Autopairs functionality. Insert pair when typing opening character and go over
 -- right character if it is already to cursor's right. Also provides mappings for
