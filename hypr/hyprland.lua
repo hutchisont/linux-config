@@ -95,7 +95,7 @@ hl.config({
 		border_size = 2,
 		col = {
 			-- active_border = mocha.lavender,
-			active_border ="rgb(b4befe)",
+			active_border = "rgb(b4befe)",
 			inactive_border = "rgba(595959aa)",
 		},
 		resize_on_border = true,
