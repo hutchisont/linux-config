@@ -6,4 +6,4 @@
 # So just kill bwrap which gets everything stopped
 
 killall -9 bwrap
-systemctl -i poweroff
+hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'

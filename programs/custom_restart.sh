@@ -6,4 +6,4 @@
 # So just kill bwrap which gets everything stopped
 
 killall -9 bwrap
-systemctl reboot
+hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot'
