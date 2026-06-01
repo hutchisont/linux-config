@@ -16,7 +16,7 @@
       "format-icons": {
           "default": ["", "", " "]
       },
-      "on-click": "pavucontrol"
+      "on-click": "hyprpwcenter"
   },
   // "upower#mouse": {
   //   "native-path": "hidpp_battery_0",
