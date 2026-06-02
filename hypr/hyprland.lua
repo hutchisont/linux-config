@@ -63,9 +63,7 @@ hl.env("HYPRCURSOR_SIZE", 28)
 hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-dark-cursors")
 
 hl.env("QT_QPA_PLATFORM", "wayland")
-
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
-
 hl.env("XDG_MENU_PREFIX", "arch-")
 
 --################
@@ -75,8 +73,6 @@ hl.env("XDG_MENU_PREFIX", "arch-")
 --################
 
 -- workaround for being unable to copy paste between wayland and x11 apps
-
--- exec-once = wl-paste -t text -w bash -c '[ "$(xclip -selection clipboard -o)" = "$(wl-paste -n)" ] || [ "$(wl-paste -l | grep image)" = "" ] && xclip -selection clipboard'
 
 --####################
 
@@ -209,15 +205,18 @@ hl.bind(mainMod .. " + " .. "ESCAPE", hl.dsp.exec_cmd("nwg-bar -t custom_bar.jso
 hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
 
 -- fullscreen but more like a maximize
-hl.bind(mainMod .. " + " .. "D", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + " .. "D", hl.dsp.window.fullscreen({ mode = "maximized" }))
 
 -- two launcher binds because I want to be able to use it with either one, left or right
-hl.bind("SUPER" .. " + " .. "SUPER_L",
-	hl.dsp.exec_cmd("pkill wofi || uwsm app -- $(wofi --allow-images --show drun --define=drun-print_desktop_file=true)"),
-	{ repeating = true })
-hl.bind("SUPER" .. " + " .. "SUPER_R",
-	hl.dsp.exec_cmd("pkill wofi || uwsm app -- $(wofi --allow-images --show drun --define=drun-print_desktop_file=true)"),
-	{ repeating = true })
+-- hl.bind("SUPER" .. " + " .. "SUPER_L",
+-- 	hl.dsp.exec_cmd("pkill wofi || uwsm app -- $(wofi --allow-images --show drun --define=drun-print_desktop_file=true)"),
+-- 	{ repeating = true })
+-- hl.bind("SUPER" .. " + " .. "SUPER_R",
+-- 	hl.dsp.exec_cmd("pkill wofi || uwsm app -- $(wofi --allow-images --show drun --define=drun-print_desktop_file=true)"),
+-- 	{ repeating = true })
+
+hl.bind("SUPER" .. " + " .. "SUPER_L", hl.dsp.exec_cmd("hyprlauncher"))
+hl.bind("SUPER" .. " + " .. "SUPER_R", hl.dsp.exec_cmd("hyprlauncher"))
 
 -- launch terminal
 hl.bind(mainMod .. " + " .. "T", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
@@ -406,4 +405,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme catppuccin-mocha-dark-cursors")
 	hl.exec_cmd("udiskie")
 	hl.exec_cmd("input-remapper-control --command autoload")
+	hl.exec_cmd(
+	"wl-paste -t text -w bash -c \'[ \"$(xclip -selection clipboard -o)\" = \"$(wl-paste -n)\" ] || [ \"$(wl-paste -l | grep image)\" = \"\" ] && xclip -selection clipboard\'")
 end)
