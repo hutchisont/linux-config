@@ -18,6 +18,7 @@ end
 	-- I don't like the type of redo that default "U" does so I'm making it just do
 	-- the same redo as "ctrl-r"
 	vim.keymap.set("n", "U", vim.cmd.redo)
+	vim.keymap.set("n", "<leader>lgh", vim.cmd.LspClangdSwitchSourceHeader, { desc = 'Clangd Switch Header/Source' })
 
   -- Center cursor on screen when moving half page up/down
   vim.keymap.set('n', '<C-d>','<C-d>zz')
