@@ -336,6 +336,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name           = "supress-wow-resize-events",
+	match          = {
+		class = "World of Warcraft",
+	},
+	suppress_event = "maximize fullscreen",
+})
+
+hl.window_rule({
 	name     = "fix-xwayland-drags",
 	match    = {
 		class = "^$",
