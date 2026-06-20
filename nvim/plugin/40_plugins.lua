@@ -12,6 +12,13 @@
 local add = vim.pack.add
 local now_if_args, later = Config.now_if_args, Config.later
 
+-- Vim Sleuth
+-- Automatically sets tabstop/tabwidth/expandtab based on what the active file
+-- is using
+now_if_args(function()
+  vim.pack.add({ 'https://github.com/tpope/vim-sleuth.git' })
+end)
+
 -- Tree-sitter ================================================================
 
 -- Tree-sitter is a tool for fast incremental parsing. It converts text into
