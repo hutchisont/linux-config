@@ -126,10 +126,6 @@ now(function() require('mini.starter').setup() end)
 --   configure a custom statusline by setting `config.content.active` function.
 now(function() require('mini.statusline').setup() end)
 
--- Tabline. Sets `:h 'tabline'` to show all listed buffers in a line at the top.
--- Buffers are ordered as they were created. Navigate with `[b` and `]b`.
-now(function() require('mini.tabline').setup() end)
-
 -- Step one or two ============================================================
 -- Load now if Neovim is started like `nvim -- path/to/file`, otherwise - later.
 -- This ensures a correct behavior for files opened during startup.
